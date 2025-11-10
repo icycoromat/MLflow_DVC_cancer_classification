@@ -1,8 +1,7 @@
-FROM python:3.8-slim-buster
+FROM python:3.10-slim-bullseye
 
-RUN apt-get update -y && \
-    apt-get install -y --no-install-recommends awscli && \
-    rm -rf /var/lib/apt/lists/*
+RUN apt-get update -y && apt-get install -y awscli
+WORKDIR /app
 
 COPY . /app
 RUN pip install -r requirements.txt
